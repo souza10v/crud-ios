@@ -14,6 +14,7 @@
 		3F407F342BF655F200DC9607 /* CreateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F407F332BF655F200DC9607 /* CreateUser.swift */; };
 		3F407F362BF681D500DC9607 /* ListUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F407F352BF681D500DC9607 /* ListUser.swift */; };
 		3F407F382BF6821600DC9607 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F407F372BF6821600DC9607 /* User.swift */; };
+		3F407F3A2BF6DC2500DC9607 /* CreateUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F407F392BF6DC2500DC9607 /* CreateUserViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		3F407F332BF655F200DC9607 /* CreateUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUser.swift; sourceTree = "<group>"; };
 		3F407F352BF681D500DC9607 /* ListUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUser.swift; sourceTree = "<group>"; };
 		3F407F372BF6821600DC9607 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3F407F392BF6DC2500DC9607 /* CreateUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 		3F407F322BF650CA00DC9607 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				3F407F392BF6DC2500DC9607 /* CreateUserViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 				3F407F342BF655F200DC9607 /* CreateUser.swift in Sources */,
 				3F407F382BF6821600DC9607 /* User.swift in Sources */,
 				3F407F222BF64CD500DC9607 /* CrudApp.swift in Sources */,
+				3F407F3A2BF6DC2500DC9607 /* CreateUserViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

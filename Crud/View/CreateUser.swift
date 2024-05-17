@@ -13,7 +13,7 @@ struct CreateUser: View {
     @State var userEmail : String = ""
     @State var userFunction : String = ""
     @State var status: String = "Active"
-    
+       
     @State var errorMessage: String = ""
     
     var body: some View {
@@ -32,16 +32,16 @@ struct CreateUser: View {
                         .keyboardType(.emailAddress)
                 }
                 
-                Section(header: Text("")) {
-                    Picker("Status", selection: $status) {
-                        Text("Active").tag("Active")
-                        Text("Inactive").tag("Inactive")
-                        Text("Pending").tag("Pending")
-                    }
-                    .pickerStyle(SegmentedPickerStyle())
-                    .onChange(of: status) { newValue in
-                        print("Status changed to: \(newValue)")}
-                }
+//                Section(header: Text("")) {
+//                    Picker("Status", selection: $status) {
+//                        Text("Active").tag("Active")
+//                        Text("Inactive").tag("Inactive")
+//                        Text("Pending").tag("Pending")
+//                    }
+//                    .pickerStyle(SegmentedPickerStyle())
+//                    .onChange(of: status) { newValue in
+//                        print("Status changed to: \(newValue)")}
+//                }
             
                 Text(errorMessage)
                 .padding(.top, 20.0)
@@ -49,6 +49,8 @@ struct CreateUser: View {
                 Button(action: {
                     if validate() {
                         print("\(userName), \(userEmail), \(userFunction), \(status)")
+                        
+                        CreateUserViewModel.createUser(userName: userName, userEmail: userEmail)
                     }
                 }, label: {
                     Text("Submit")

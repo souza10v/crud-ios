@@ -10,7 +10,8 @@ class CreateCustomerController {
 
         const customer = await customerService.execute({ name, email })
 
-        reply.send(customer)
+        console.log("Created")
+        //reply.send(customer)
     }
 }
 

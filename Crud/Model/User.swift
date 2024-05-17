@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+class User: Identifiable, Decodable {
+    
+    var id: UUID?
+    var name: String
+    var email: String
+    var status: Bool
+}
