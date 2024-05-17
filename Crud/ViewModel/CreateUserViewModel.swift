@@ -1,18 +1,11 @@
-//
-//  CreateUserViewModel.swift
-//  Crud
-//
-//  Created by Donizetti de Souza on 5/16/24.
-//
-
 import Foundation
 
 class CreateUserViewModel: ObservableObject {
     
-    static func createUser(userName: String, userEmail: String) {
+    static func createUser(userName: String, userEmail: String, userPosition: String, completion: @escaping (String) -> Void) {
         
         guard let url = URL(string: "http://localhost:3333/customer") else {
-            print("Inalvid URL")
+            completion("Invalid URL")
             return
         }
         
@@ -22,61 +15,43 @@ class CreateUserViewModel: ObservableObject {
         
         let userData = [
             "name": userName,
-            "email": userEmail
+            "email": userEmail,
+            "position": userPosition
         ]
         
-        let jsonData = try? JSONSerialization.data(withJSONObject: userData)
-        
-        if let jsonData = jsonData {
-            print("JSON:", String(data: jsonData, encoding: .utf8) ?? "JSON serialization failed")
-            urlRequest.httpBody = jsonData
-        } else {
-            print("Error: JSON serialization failed")
+        guard let jsonData = try? JSONSerialization.data(withJSONObject: userData) else {
+            completion("Error: JSON serialization failed")
             return
         }
         
+        urlRequest.httpBody = jsonData
         
         URLSession.shared.dataTask(with: urlRequest) { data, response, error in
             if let error = error {
-                print("Error:", error)
-                DispatchQueue.main.async {
-                    // self.isShowingAlert = true
-                    let alertMessage = "Registration failed: \(error.localizedDescription)"
-                    print(alertMessage)
-                }
+                completion("Registration failed: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+                completion("Error: HTTP request failed")
                 return
             }
             
             guard let data = data else {
-                print("Error: No data received")
-                DispatchQueue.main.async {
-                    // self.isShowingAlert = true
-                    // self.alertMessage = "Registration failed: No response from server"
-                    let alertMessage = "Registration failed: No response from server"
-                    print(alertMessage)
-                }
+                completion("Error: No data received")
                 return
             }
             
             do {
-                let jsonResponse = try JSONSerialization.jsonObject(with: data, options: [])
-                print(jsonResponse)
-                DispatchQueue.main.async {
-                    // self.isShowingAlert = true
-                    let alertMessage = "Registration successful!"
-                    print(alertMessage)
-                    // Handle successful registration (e.g., clear fields, navigate to another view)
+                if let jsonResponse = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+                   let message = jsonResponse["message"] as? String {
+                    completion(message)
+                } else {
+                    completion("Error: Invalid response")
                 }
             } catch {
-                print("Error:", error)
-                DispatchQueue.main.async {
-                    // self.isShowingAlert = true
-                    let alertMessage = "Registration failed: Error parsing response"
-                    print(alertMessage)
-                }
+                completion("Error: \(error.localizedDescription)")
             }
         }.resume()
-        
     }
 }
-

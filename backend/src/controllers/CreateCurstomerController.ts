@@ -4,14 +4,18 @@ import { CreateCustomerService } from "../Service/CreateCustomerService";
 class CreateCustomerController {
     async handle(request: FastifyRequest, reply: FastifyReply) {
 
-        const { name, email } = request.body as {name: string, email: string}
+        console.log("Request received:", request.body); // Log the incoming request
+            const { name, email, position } = request.body as { name: string, email: string, position: string };
+            const customerService = new CreateCustomerService();
+            const customer = await customerService.execute({ name, email, position });
+            console.log("Customer created:", customer); // Log the created customer
 
-        const customerService = new CreateCustomerService()
+            // Send a success message along with the created customer data
+            reply.send({
+                message: "User created successfully",
+                customer: customer
+            });
 
-        const customer = await customerService.execute({ name, email })
-
-        console.log("Created")
-        //reply.send(customer)
     }
 }
 
