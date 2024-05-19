@@ -12,6 +12,7 @@ struct CrudApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
+                .environmentObject(ReadingUserViewModel())
         }
     }
 }

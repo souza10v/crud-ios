@@ -32,19 +32,15 @@ struct MainView: View {
 
                     
                     NavigationLink {
-                        
+                        ListUserView()
                     } label: {
-                        Button(action: {
-                            
-                        }, label: {
-                            Text("Read")
-                                .frame(maxWidth: .infinity)
-                        })
-                        .buttonStyle(.borderedProminent)
-                        .tint(.blue)
-                        .controlSize(.large)
-                        .frame(width: 100, height: 50)
+                        Text("Read")
+                            .frame(maxWidth: .infinity)
                     }
+                    .buttonStyle(.borderedProminent)
+                    .tint(.blue)
+                    .controlSize(.large)
+                    .frame(width: 100, height: 50)
 
                     
                     

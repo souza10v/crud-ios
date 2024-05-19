@@ -11,7 +11,7 @@ class CreateUserViewModel: ObservableObject {
         
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
-        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type") //define to tipo
         
         let userData = [
             "name": userName,

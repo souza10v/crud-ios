@@ -17,6 +17,7 @@
 		3F407F3A2BF6DC2500DC9607 /* CreateUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F407F392BF6DC2500DC9607 /* CreateUserViewModel.swift */; };
 		3F407F3E2BF9531900DC9607 /* UserItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F407F3D2BF9531900DC9607 /* UserItemView.swift */; };
 		3F407F402BF957A800DC9607 /* UserDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F407F3F2BF957A800DC9607 /* UserDetailsView.swift */; };
+		3F9DEA292BFA75A000E60AEF /* ReadingUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9DEA282BFA75A000E60AEF /* ReadingUserViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		3F407F392BF6DC2500DC9607 /* CreateUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserViewModel.swift; sourceTree = "<group>"; };
 		3F407F3D2BF9531900DC9607 /* UserItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserItemView.swift; sourceTree = "<group>"; };
 		3F407F3F2BF957A800DC9607 /* UserDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsView.swift; sourceTree = "<group>"; };
+		3F9DEA282BFA75A000E60AEF /* ReadingUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingUserViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				3F407F392BF6DC2500DC9607 /* CreateUserViewModel.swift */,
+				3F9DEA282BFA75A000E60AEF /* ReadingUserViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 				3F407F402BF957A800DC9607 /* UserDetailsView.swift in Sources */,
 				3F407F242BF64CD500DC9607 /* MainView.swift in Sources */,
 				3F407F342BF655F200DC9607 /* CreateUserVIew.swift in Sources */,
+				3F9DEA292BFA75A000E60AEF /* ReadingUserViewModel.swift in Sources */,
 				3F407F382BF6821600DC9607 /* UserModel.swift in Sources */,
 				3F407F222BF64CD500DC9607 /* CrudApp.swift in Sources */,
 				3F407F3A2BF6DC2500DC9607 /* CreateUserViewModel.swift in Sources */,
