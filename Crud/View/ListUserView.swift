@@ -11,6 +11,8 @@ struct ListUserView: View {
     
     @EnvironmentObject var model: ReadingUserViewModel
     
+    // Trabalhar para que atualizacao ocorra somente quando puxar a tela de baixo para cima e nao sempre que a tela é aberta
+    
     var body: some View {
 
             VStack(alignment: .leading) {
