@@ -1,20 +1,56 @@
-//
-//  ItemUser.swift
-//  Crud
-//
-//  Created by Donizetti de Souza on 5/18/24.
-//
-
 import SwiftUI
 
-struct ItemView: View {
+struct UserItemView: View {
     
+    var item: UserModel
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            VStack(alignment: .leading) {
+                Text(item.name)
+                    .font(.headline)
+                    .foregroundColor(Color.black)
+                    .bold()
+                Text(item.email)
+                    .foregroundColor(Color.black)
+                    .font(.subheadline)
+            }
+            
+            Spacer()
+            
+            Text(item.status ? "Active" : "Inactive")
+                .font(.headline)
+                .foregroundColor(item.status ? .green : .red)
+            
+            
+            HStack {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 5)
+                        .fill(Color.blue)
+                        .frame(width: 30, height: 30)
+                    
+                    Image(systemName: "pencil")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                }
+            }
+            
+            ZStack {
+                RoundedRectangle(cornerRadius: 5)
+                    .fill(Color.blue)
+                    .frame(width: 30, height: 30)
+                
+                Image(systemName: "trash")
+                    .font(.headline)
+                    .foregroundColor(.white)
+            }
+            
+            
+        }
+        .padding()
     }
 }
 
 #Preview {
-    ItemView()
+    UserItemView(item: UserModel(name: "John Doe", email: "john@example.com", status: true))
 }

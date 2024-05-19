@@ -7,9 +7,8 @@
 
 import Foundation
 
-class User: Identifiable, Decodable {
-    
-    var id: UUID?
+struct UserModel: Identifiable, Decodable {
+    var id: UUID? = UUID()
     var name: String
     var email: String
     var status: Bool

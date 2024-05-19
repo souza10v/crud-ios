@@ -7,18 +7,25 @@
 
 import SwiftUI
 
-struct UserDetails: View {
-    
+struct UserDetailsView: View {
     var user: UserModel
     
     var body: some View {
-        Text(user.name)
+        VStack {
+            Text(user.name)
+                .font(.largeTitle)
+            Text(user.email)
+                .font(.title2)
+            Text(user.status ? "Active" : "Inactive")
+                .font(.title3)
+                .foregroundColor(user.status ? .green : .red)
+        }
+        .padding()
+        .navigationTitle("User Details")
     }
 }
 
 #Preview {
-    
-    let sampleData = UserModel(name: "John Doe", email: "john@example.com", status: true)
-    
-    UserDetails(user: sampleData)
+    UserDetailsView(user: UserModel(name: "John Doe", email: "john@example.com", status: true))
 }
+

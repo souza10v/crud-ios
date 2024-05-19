@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CreateUser: View {
+struct CreateUserView: View {
     @State private var userName: String = ""
     @State private var userEmail: String = ""
     @State private var userPosition: String = ""
@@ -75,5 +75,5 @@ struct CreateUser: View {
 }
 
 #Preview {
-    CreateUser()
+    CreateUserView()
 }

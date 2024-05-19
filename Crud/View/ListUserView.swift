@@ -8,26 +8,35 @@
 import SwiftUI
 
 struct ListUserView: View {
+    
     var items: [UserModel]
     
     var body: some View {
         NavigationView {
-            List(items) { item in
-                NavigationLink(destination: UserDetailsView(user: item)) {
-                    UserItemView(item: item)
+            VStack(alignment: .leading) {
+                Text("User List")
+                    .font(.largeTitle)
+                    .padding(.top, 20)
+                    .padding(.leading, 15)
+                
+                ScrollView {
+                    VStack(alignment: .leading) {
+                        ForEach(items) { item in
+                            NavigationLink(destination: UserDetailsView(user: item)) {
+                                UserItemView(item: item)
+                                    .padding(.vertical, -10)
+                            }
+                        }
+                    }
                 }
             }
-            .navigationTitle("User List")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
 
 #Preview {
-    let sampleData = [
-        UserModel(name: "John Doe", email: "john@example.com", status: true),
-        UserModel(name: "Jane Smith", email: "jane@example.com", status: true),
-        UserModel(name: "Alice Johnson", email: "alice@example.com", status: false)
-    ]
-    
-    ListUserView(items: sampleData)
+    ListUserView(items: [UserModel(name: "John Doe", email: "john@example.com", status: true),
+                         UserModel(name: "John Doe", email: "john@example.com", status: true),
+                         UserModel(name: "John Doe", email: "john@example.com", status: true)])
 }

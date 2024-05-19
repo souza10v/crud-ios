@@ -19,7 +19,7 @@ struct MainView: View {
                 HStack {
                     
                     NavigationLink {
-                        CreateUser()
+                        CreateUserView()
                     } label: {
                         Text("Create")
                             .frame(maxWidth: .infinity)
