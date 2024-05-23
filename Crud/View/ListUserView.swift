@@ -21,7 +21,7 @@ struct ListUserView: View {
     }
     
     var body: some View {
-        NavigationStack {
+        ScrollView {
             VStack(alignment: .leading) {
                 HStack{
                     Text("User List")
@@ -40,9 +40,9 @@ struct ListUserView: View {
                             .font(.headline)
                             .foregroundColor(.white)
                     }
-                    .padding([.top, .trailing], 22.0)
+                    .padding(.trailing, 22.0)
                 }
-                
+                .padding(.top, 10)
                 
                 
                 HStack {
