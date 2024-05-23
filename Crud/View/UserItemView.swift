@@ -55,5 +55,5 @@ struct UserItemView: View {
 }
 
 #Preview {
-    UserItemView(item: UserModel(id: "345534", name: "John Doe", email: "john@example.com", status: true))
+    UserItemView(item: UserModel(id: "345f534", name: "John Doe", email: "john@example.com", status: true))
 }
