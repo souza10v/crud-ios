@@ -11,6 +11,7 @@ struct ListUserView: View {
     
     @EnvironmentObject var model: ReadingUserViewModel
     @State private var searchTerm = ""
+    @State var isAddViewShowing = false
     
     var filteredUsers: [UserModel] {
         if searchTerm.isEmpty {
@@ -32,17 +33,26 @@ struct ListUserView: View {
                     Spacer()
                     
                     ZStack {
-                        RoundedRectangle(cornerRadius: 5)
-                            .fill(Color.blue)
-                            .frame(width: 30, height: 30)
                         
-                        Image(systemName: "plus")
-                            .font(.headline)
-                            .foregroundColor(.white)
+                        Button(action: {
+                            isAddViewShowing = true
+                        }, label: {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 5)
+                                    .fill(Color.blue)
+                                    .frame(width: 30, height: 30)
+                                
+                                Image(systemName: "plus")
+                                    .font(.headline)
+                                    .foregroundColor(.white)
+                            }
+                        })
                     }
                     .padding(.trailing, 22.0)
                 }
-                .padding(.top, 10)
+                .sheet(isPresented: $isAddViewShowing) {
+                    CreateUserView(isPresented: $isAddViewShowing, shouldShowHStack: true)
+                }
                 
                 
                 HStack {
