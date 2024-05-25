@@ -4,7 +4,7 @@ class CreateUserViewModel: ObservableObject {
     
     static func createUser(userName: String, userEmail: String, userPosition: String, completion: @escaping (String) -> Void) {
         
-        guard let url = URL(string: "http://localhost:3333/customer") else {
+        guard let url = URL(string: "http://localhost:3333/user") else {
             completion("Invalid URL")
             return
         }

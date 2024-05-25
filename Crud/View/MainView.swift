@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
+    
     var body: some View {
               
         NavigationView {
@@ -19,7 +20,7 @@ struct MainView: View {
                 HStack {
                     
                     NavigationLink {
-                        CreateUserView(isPresented: .constant(false), shouldShowHStack: false)
+                        CreateUserView(isPresented: .constant(true), shouldShowHStack: false)
                     } label: {
                         Text("Create")
                             .frame(maxWidth: .infinity)

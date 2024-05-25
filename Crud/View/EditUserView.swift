@@ -7,11 +7,14 @@ struct EditUserView: View {
     
     var item: UserModel
     
+    @StateObject private var viewModel = EditingUserViewModel()
+    
     @State var userName: String = ""
     @State var userEmail: String = ""
     @State var userPosition: String = ""
     @State var status: Bool = false
     @State var message: String = ""
+    @State var selectedUserStatus = true
     
     var body: some View {
         VStack {
@@ -43,6 +46,11 @@ struct EditUserView: View {
                     .keyboardType(.emailAddress)
                 TextField("Function", text: $userPosition)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
+                Picker("", selection: $selectedUserStatus) {
+                    Text("Active").tag(true)
+                    Text("Inactive").tag(false)
+                }
+                .pickerStyle(SegmentedPickerStyle())
             }
             
             Text(message)
@@ -51,7 +59,7 @@ struct EditUserView: View {
             
             Button(action: {
                 if validate() {
-                    // function Update user code here
+                    viewModel.updateUser(userID: item.id, userName: userName, userEmail: userEmail, userPosition: userPosition, userStatus: selectedUserStatus)
                     
                     userName = ""
                     userEmail = ""
@@ -59,6 +67,7 @@ struct EditUserView: View {
                     
                     message = "Updated"
                     isPresented = false
+                    
                 }
             }, label: {
                 Text("Submit")
@@ -91,6 +100,7 @@ struct EditUserView: View {
             return true
         }
     }
+
 }
 
 #Preview {
