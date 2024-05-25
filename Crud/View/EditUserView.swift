@@ -51,7 +51,7 @@ struct EditUserView: View {
             
             Button(action: {
                 if validate() {
-                    // Update user code here
+                    // function Update user code here
                     
                     userName = ""
                     userEmail = ""
