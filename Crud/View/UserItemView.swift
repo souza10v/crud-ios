@@ -3,6 +3,8 @@ import SwiftUI
 struct UserItemView: View {
     
     var item: UserModel
+    
+    @EnvironmentObject var model: ReadingUserViewModel
     @State var isEditViewShowing = false
     
     var body: some View {
@@ -45,6 +47,9 @@ struct UserItemView: View {
             }
             .sheet(isPresented: $isEditViewShowing) {
                 EditUserView(isPresented: $isEditViewShowing, shouldShowHStack: true, item: item)
+                    .onDisappear {
+                        model.fetchUsers()
+                    }
             }
             
             ZStack {

@@ -8,8 +8,6 @@ class EditCustomerController {
 
         const { name, email, position, status } = request.body as {name: string, email: string, position: string, status: boolean}
 
-        console.log(status)
-        
         const editCustomerService = new EditCustomerService()
 
         const user = await editCustomerService.execute({ id, name, email, position, status})

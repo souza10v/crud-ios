@@ -52,6 +52,9 @@ struct ListUserView: View {
                 }
                 .sheet(isPresented: $isAddViewShowing) {
                     CreateUserView(isPresented: $isAddViewShowing, shouldShowHStack: true)
+                        .onDisappear{
+                            model.fetchUsers()
+                        }
                 }
                 
                 
