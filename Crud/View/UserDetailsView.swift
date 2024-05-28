@@ -16,6 +16,8 @@ struct UserDetailsView: View {
                 .font(.largeTitle)
             Text(user.email)
                 .font(.title2)
+            Text(user.position ?? "")
+                .font(.title2)
             Text(user.status ? "Active" : "Inactive")
                 .font(.title3)
                 .foregroundColor(user.status ? .green : .red)
@@ -29,6 +31,6 @@ struct UserDetailsView: View {
 }
 
 #Preview {
-    UserDetailsView(user: UserModel(id: "321312", name: "John Doe", email: "john@example.com", status: true))
+    UserDetailsView(user: UserModel(id: "321312", name: "John Doe",email: "john@example.com", position:"Crew", status: true))
 }
 

@@ -20,7 +20,6 @@ class ReadingUserViewModel: ObservableObject {
         }
         
         URLSession.shared.dataTask(with: url) { data, response, error in
-            print(data)
             if let error = error {
                 DispatchQueue.main.async {
                     self.errorMessage = "Failed to fetch users: \(error.localizedDescription)"

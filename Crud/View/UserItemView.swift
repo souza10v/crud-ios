@@ -6,6 +6,7 @@ struct UserItemView: View {
     
     @EnvironmentObject var model: ReadingUserViewModel
     @State var isEditViewShowing = false
+    @State var showDeleteAlert = false
     
     var body: some View {
         
@@ -52,18 +53,38 @@ struct UserItemView: View {
                     }
             }
             
-            ZStack {
-                RoundedRectangle(cornerRadius: 5)
-                    .fill(Color.blue)
-                    .frame(width: 30, height: 30)
+            HStack {
                 
-                Image(systemName: "trash")
-                    .font(.headline)
-                    .foregroundColor(.white)
+                Button(action: {
+                    showDeleteAlert = true
+                }, label: {
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 5)
+                            .fill(Color.blue)
+                            .frame(width: 30, height: 30)
+                        
+                        Image(systemName: "trash")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                    }
+                })
+            }
+            .alert(isPresented: $showDeleteAlert) {
+                Alert(
+                    title: Text("Delete Item"),
+                    message: Text("Are you sure you want to delete this item?"),
+                    primaryButton: .destructive(Text("Yes")) {
+                        deleteItem()
+                    },
+                    secondaryButton: .cancel()
+                )
             }
         }
         .padding()
-        
+    }
+    
+    func deleteItem(){
+        print("delete")
     }
 }
 
