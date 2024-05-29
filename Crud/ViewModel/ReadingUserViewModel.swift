@@ -10,6 +10,7 @@ import Foundation
 class ReadingUserViewModel: ObservableObject {
     
     @Published var users = [UserModel]()
+    
     @Published var errorMessage: String = ""
     private var hasFetchedUsers = false
     
