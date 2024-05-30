@@ -45,7 +45,7 @@ class ReadingUserViewModel: ObservableObject {
                 DispatchQueue.main.async {
                     self.users = users
                     self.errorMessage = ""
-                    print("Data Worked")
+                    print("Reading Data Worked")
                 }
             } catch {
                 DispatchQueue.main.async {

@@ -4,7 +4,9 @@ struct UserItemView: View {
     
     var item: UserModel
     
-    @EnvironmentObject var model: ReadingUserViewModel
+    @EnvironmentObject var model1: ReadingUserViewModel
+    @StateObject private var model2 = DeletingUserViewModel()
+    
     @State var isEditViewShowing = false
     @State var showDeleteAlert = false
     
@@ -49,7 +51,7 @@ struct UserItemView: View {
             .sheet(isPresented: $isEditViewShowing) {
                 EditUserView(isPresented: $isEditViewShowing, shouldShowHStack: true, item: item)
                     .onDisappear {
-                        model.fetchUsers()
+                        model1.fetchUsers()
                     }
             }
             
@@ -74,7 +76,9 @@ struct UserItemView: View {
                     title: Text("Delete Item"),
                     message: Text("Are you sure you want to delete this item?"),
                     primaryButton: .destructive(Text("Yes")) {
-                        deleteItem()
+                        model2.deleteUser(userID: item.id) {
+                            model1.fetchUsers()  
+                        }
                     },
                     secondaryButton: .cancel()
                 )
@@ -82,12 +86,9 @@ struct UserItemView: View {
         }
         .padding()
     }
-    
-    func deleteItem(){
-        print("delete")
-    }
 }
 
 #Preview {
     UserItemView(item: UserModel(id: "345f534", name: "John Doe", email: "john@example.com", position: "Crew", status: true))
+        .environmentObject(ReadingUserViewModel())
 }

@@ -5,7 +5,6 @@ struct EditUserView: View {
     @Binding var isPresented: Bool
     @State var shouldShowHStack: Bool
 
-    
     var item: UserModel
     
     @StateObject private var viewModel = EditingUserViewModel()
