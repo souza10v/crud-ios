@@ -85,7 +85,7 @@ struct EditUserView: View {
             userName = item.name
             userEmail = item.email
             userPosition = item.position ?? ""
-            status = item.status
+            selectedUserStatus = item.status
         }
         
         Spacer()
@@ -104,5 +104,5 @@ struct EditUserView: View {
 }
 
 #Preview {
-    EditUserView(isPresented: .constant(true), shouldShowHStack: true, item: UserModel(id: "345f534", name: "John Doe", email: "john@example.com", position: "Crew", status: true))
+    EditUserView(isPresented: .constant(true), shouldShowHStack: true, item: UserModel(id: "345f534", name: "John Doe", email: "john@example.com", position: "Crew", status: false))
 }
