@@ -1,6 +1,19 @@
 # Crud iOS App
 
-This is a simple CRUD (Create, Read, Update, Delete) iOS application developed using SwiftUI for the frontend and Node.js for the backend. The app interacts with a MongoDB database to manage user data.
+https://youtu.be/dF8pHDY0ETA
+
+This project is a comprehensive example of a CRUD (Create, Read, Update, Delete) application, designed to demonstrate the integration of a modern iOS frontend with a robust backend service. Developed using SwiftUI for the frontend, this application leverages the declarative UI framework to build a responsive and intuitive user interface. The backend is powered by Node.js, providing a scalable and efficient server-side environment that interacts with a MongoDB database to manage user data seamlessly.
+
+The primary goal of this project is to illustrate how to effectively handle basic data operations—such as creating new user records, reading existing user information, updating user details, and deleting user entries—while maintaining a clean and efficient codebase. By employing SwiftUI, the frontend code remains concise and expressive, allowing developers to focus on the user experience. The use of Node.js for the backend ensures that server-side logic is both performant and easy to maintain, with MongoDB offering a flexible and powerful solution for data storage.
+
+Key highlights of this project include:
+
+SwiftUI Frontend: The use of SwiftUI allows for the creation of dynamic and interactive user interfaces with less code. The declarative syntax makes it easy to visualize the app’s structure and behavior.
+Node.js Backend: Node.js is used for building the backend server, leveraging its non-blocking, event-driven architecture to handle multiple requests efficiently.
+MongoDB Integration: The application connects to a MongoDB database, which is well-suited for handling JSON-like documents, offering high performance, high availability, and easy scalability.
+RESTful API: The backend exposes a RESTful API, enabling standard HTTP methods to perform CRUD operations. This ensures that the frontend and backend communicate seamlessly.
+Separation of Concerns: The project is structured to clearly separate the frontend and backend logic, promoting maintainability and scalability.
+By integrating these technologies, this project not only serves as a learning tool for developers but also provides a solid foundation for building more complex applications. Whether you're looking to understand the basics of CRUD operations or seeking to explore the capabilities of SwiftUI and Node.js in a real-world scenario, this application offers valuable insights and practical experience.
 
 ## Table of Contents
 
